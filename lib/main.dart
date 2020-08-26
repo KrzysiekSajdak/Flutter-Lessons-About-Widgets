@@ -2,7 +2,8 @@
 // FLUTTER LESSONS ABOUT WIDGETS
 
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/widgets/animated_container.dart';
+import 'package:flutter_widgets/widgets/future_builder_widget.dart';
+import 'package:flutter_widgets/widgets/opacity_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: AnimatedContainerWidget(),
+          child: FutureBuilderWidget(),
         ),
       ),
     );

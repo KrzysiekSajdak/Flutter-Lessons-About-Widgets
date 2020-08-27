@@ -9,6 +9,9 @@ class ActiveSearchTextField extends StatefulWidget {
 
 class _ActiveSearchTextFieldState extends State<ActiveSearchTextField> {
   bool searchFieldVisible = false;
+  Color searchIconColour = Colors.blue;
+  double searchFieldVisibleSize = 0;
+  double searchBarTextOpacity = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -20,34 +23,38 @@ class _ActiveSearchTextFieldState extends State<ActiveSearchTextField> {
           height: 60,
           child: Stack(
             children: [
-              searchFieldVisible
-                  ? Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Container(
-                          width: 380,
-                          height: 54,
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade200,
-                            borderRadius: BorderRadius.circular(45),
-                          ),
+              Stack(
+                alignment: Alignment.centerRight,
+                children: [
+                  AnimatedContainer(
+                    alignment: Alignment.centerRight,
+                    duration: Duration(milliseconds: 500),
+                    width: searchFieldVisibleSize,
+                    height: 54,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade200,
+                      borderRadius: BorderRadius.circular(45),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 35),
+                      child: AnimatedOpacity(
+                        duration: Duration(milliseconds: 800),
+                        opacity: searchBarTextOpacity,
+                        child: Text(
+                          "search for item...",
+                          style: TextStyle(
+                              fontStyle: FontStyle.italic,
+                              color: Colors.grey.shade400,
+                              fontSize: 16),
                         ),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 35),
-                            child: Text(
-                              "search for item...",
-                              style: TextStyle(
-                                  fontStyle: FontStyle.italic,
-                                  color: Colors.grey.shade400,
-                                  fontSize: 16),
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
-                  : Container(),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               Align(
                 alignment: Alignment.centerRight,
                 child: GestureDetector(
@@ -55,22 +62,27 @@ class _ActiveSearchTextFieldState extends State<ActiveSearchTextField> {
                     setState(() {
                       if (searchFieldVisible) {
                         searchFieldVisible = false;
+                        searchFieldVisibleSize = 0;
+                        searchBarTextOpacity = 0;
                       } else {
                         searchFieldVisible = true;
+                        searchFieldVisibleSize = 380;
+                        searchBarTextOpacity = 1;
                       }
                     });
                   },
-                  child: Container(
+                  child: AnimatedContainer(
+                    duration: Duration(milliseconds: 500),
                     width: 60,
                     height: searchFieldVisible ? 40 : 60,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.orange.shade500,
-                      radius: 45,
-                      child: Icon(
-                        Icons.search,
-                        color: Colors.white,
-                        size: searchFieldVisible ? 28 : 35,
-                      ),
+                    decoration: BoxDecoration(
+                      color: searchIconColour,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      Icons.search,
+                      color: Colors.white,
+                      size: searchFieldVisible ? 28 : 35,
                     ),
                   ),
                 ),

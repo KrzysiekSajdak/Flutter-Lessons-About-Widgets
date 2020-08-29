@@ -4,8 +4,8 @@
 //bottom navigation bar - https://codewithandrea.com/articles/2018-09-13-bottom-bar-navigation-with-fab/
 
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/widgets/active_search_text_field.dart';
-import 'package:flutter_widgets/widgets/fade_transition_widget.dart';
+import 'package:flutter_widgets/widgets/sliver_app_bar.dart';
+import 'package:flutter_widgets/widgets/table_view_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,71 +16,79 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Center(
-          // here add active view widget
-          //-----------------------------
-          child: ActiveSearchTextField(),
-          //-----------------------------
-        ),
+        body: SliverAppBarWidget(),
         floatingActionButton: FloatingActionButton(
-          elevation: 2,
           onPressed: () {},
-          child: Icon(
-            Icons.alarm,
-          ),
+          child: Icon(Icons.add),
         ),
         bottomNavigationBar: BottomAppBar(
           notchMargin: 7,
-          shape: CircularNotchedRectangle(),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                child: SizedBox(
-                  height: 48,
-                  width: 48,
-                  child: Material(
-                    type: MaterialType.transparency,
-                    child: InkWell(
-                      onTap: () {},
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Icon(Icons.account_circle),
-                          Text("people"),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: SizedBox(
-                  height: 48,
-                  width: 48,
-                  child: Material(
-                    type: MaterialType.transparency,
-                    child: InkWell(
-                      onTap: () {},
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Icon(Icons.account_circle),
-                          Text("people"),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
+          elevation: 2,
+          color: Colors.yellow,
+          child: Container(
+            height: 25,
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+//        floatingActionButton: FloatingActionButton(
+//          elevation: 2,
+//          onPressed: () {},
+//          child: Icon(
+//            Icons.alarm,
+//          ),
+//        ),
+//        bottomNavigationBar: BottomAppBar(
+//          notchMargin: 7,
+//          shape: CircularNotchedRectangle(),
+//          child: Row(
+//            mainAxisSize: MainAxisSize.max,
+//            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//            crossAxisAlignment: CrossAxisAlignment.center,
+//            children: [
+//              Expanded(
+//                child: SizedBox(
+//                  height: 48,
+//                  width: 48,
+//                  child: Material(
+//                    type: MaterialType.transparency,
+//                    child: InkWell(
+//                      onTap: () {},
+//                      child: Column(
+//                        mainAxisSize: MainAxisSize.min,
+//                        mainAxisAlignment: MainAxisAlignment.center,
+//                        children: <Widget>[
+//                          Icon(Icons.account_circle),
+//                          Text("people"),
+//                        ],
+//                      ),
+//                    ),
+//                  ),
+//                ),
+//              ),
+//              Expanded(
+//                child: SizedBox(
+//                  height: 48,
+//                  width: 48,
+//                  child: Material(
+//                    type: MaterialType.transparency,
+//                    child: InkWell(
+//                      onTap: () {},
+//                      child: Column(
+//                        mainAxisSize: MainAxisSize.min,
+//                        mainAxisAlignment: MainAxisAlignment.center,
+//                        children: <Widget>[
+//                          Icon(Icons.account_circle),
+//                          Text("people"),
+//                        ],
+//                      ),
+//                    ),
+//                  ),
+//                ),
+//              ),
+//            ],
+//          ),
+//        ),
+//        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );
   }

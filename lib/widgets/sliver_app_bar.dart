@@ -7,10 +7,11 @@ class SliverAppBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: NestedScrollView(
+
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScroller) {
           return <Widget>[
             SliverAppBar(
-              expandedHeight: 140,
+              expandedHeight: 120,
               floating: false,
               pinned: true,
               elevation: 25,

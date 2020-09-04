@@ -2,10 +2,9 @@
 // FLUTTER LESSONS ABOUT WIDGETS
 
 //bottom navigation bar - https://codewithandrea.com/articles/2018-09-13-bottom-bar-navigation-with-fab/
-
+//reformat code option, control, l
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/widgets/sliver_app_bar.dart';
-import 'package:flutter_widgets/widgets/table_view_widget.dart';
+import 'package:flutter_widgets/widgets/custom_paint_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: SliverAppBarWidget(),
+        body: CustomPaintWidget(),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           child: Icon(Icons.add),
